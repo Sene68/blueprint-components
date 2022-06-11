@@ -1,20 +1,15 @@
 import * as React from "react";
-import { Button, ButtonGroup, Divider } from "@blueprintjs/core";
+import { Callout, Code } from "@blueprintjs/core";
 import "./Main.scss";
 
 function Main() {
     return(
         <div className="main">
-            <ButtonGroup minimal={true} vertical={false}>
-                <Button text="File" />
-                <Button text="Edit" />
-                <Divider />
-                <Button text="Create" />
-                <Button text="Delete" />
-                <Divider />
-                <Button icon="add" />
-                <Button icon="remove" />
-            </ButtonGroup>
+            <Callout title={"Getting Started"}>
+                The component is a simple wrapper around the CSS API that provides props for modifiers and optional
+                title element. Any additional HTML props will be spread to the rendered <Code>{"<div>"}</Code>{" "}
+                element.
+            </Callout>
         </div>
     );
 }

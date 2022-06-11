@@ -9,10 +9,12 @@ import {
   NavbarDivider
 } from "@blueprintjs/core";
 
+import "./Header.scss";
+
 function Navigation() {
   return (
     <Navbar className={Classes.DARK}>
-      <NavbarGroup align={Alignment.LEFT}>
+      <NavbarGroup align={Alignment.CENTER} className="header">
         <NavbarHeading>Blueprint Components</NavbarHeading>
         <NavbarDivider />
         <AnchorButton

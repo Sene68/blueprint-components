@@ -7,7 +7,7 @@ function Left() {
     return(
         <div className="side">
             <Menu className={Classes.ELEVATION_1}>
-                <MenuItem text="Custom SVG icon" />
+                <MenuItem text="Getting Started" />
                 <MenuDivider />
                 <MenuItem icon="new-text-box" text="New text box" />
                 <MenuItem icon="new-object" text="New object" />
