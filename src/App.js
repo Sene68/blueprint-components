@@ -1,20 +1,18 @@
 import Navigation from "./layout/Header";
-import { Button, ButtonGroup, Divider } from "@blueprintjs/core";
+import Left from "./layout/Left";
+import Main from "./components/main/Main";
+
+import "./App.scss"
 
 function App() {
   return (
     <>
       <Navigation></Navigation>
-      <ButtonGroup minimal={true} vertical={false}>
-        <Button text="File" />
-        <Button text="Edit" />
-        <Divider />
-        <Button text="Create" />
-        <Button text="Delete" />
-        <Divider />
-        <Button icon="add" />
-        <Button icon="remove" />
-    </ButtonGroup>
+      <div className="container">
+        <Left></Left>
+        <Main></Main>
+      </div>
+      
     </>
   );
 }
