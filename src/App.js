@@ -1,6 +1,10 @@
+import React from 'react';
+import { Routes, Route } from "react-router-dom";
 import Navigation from "./layout/Header";
 import Left from "./layout/Left";
 import Main from "./components/main/Main";
+import GettingStarted from "./components/main/GettingStarted";
+
 
 import "./App.scss"
 
@@ -10,7 +14,10 @@ function App() {
       <Navigation></Navigation>
       <div className="container">
         <Left></Left>
-        <Main></Main>
+        <Routes>
+          <Route path="/" element={<Main/>} ></Route>
+          <Route path="/getting-started" element={<GettingStarted/>} />
+        </Routes>
       </div>
       
     </>

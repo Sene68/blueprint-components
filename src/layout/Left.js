@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Classes, Icon, Menu, MenuDivider, MenuItem } from "@blueprintjs/core";
+import { Classes, Menu, MenuDivider, MenuItem } from "@blueprintjs/core";
 import "./Left.scss"
 
 
@@ -7,7 +7,7 @@ function Left() {
     return(
         <div className="side">
             <Menu className={Classes.ELEVATION_1}>
-                <MenuItem text="Getting Started" />
+                <MenuItem href="/getting-started" text="Getting Started" />
                 <MenuDivider />
                 <MenuItem icon="new-text-box" text="New text box" />
                 <MenuItem icon="new-object" text="New object" />
