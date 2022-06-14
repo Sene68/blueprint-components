@@ -8,12 +8,12 @@ function Left() {
         <div className="side">
             <Menu className={Classes.ELEVATION_1}>
                 <MenuItem href="/getting-started" text="Getting Started" />
-                <MenuDivider />
-                <MenuItem icon="new-text-box" text="New text box" />
-                <MenuItem icon="new-object" text="New object" />
-                <MenuItem icon="new-link" text="New link" />
-                <MenuDivider />
-                <MenuItem icon="cog"  text="Settings..." intent="primary" />
+                <MenuDivider title="CORE"/>
+                <MenuItem href="/breadcrumbs" text="Breadcrumbs" />
+                <MenuItem text="Button" />
+                <MenuItem text="Button group" />
+                <MenuDivider title="DATETIME"/>
+                <MenuItem text="Date picker" />
             </Menu>
         </div>
     );
