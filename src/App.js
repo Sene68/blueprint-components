@@ -5,6 +5,7 @@ import Left from "./layout/Left";
 import Main from "./components/main/Main";
 import GettingStarted from "./components/main/GettingStarted";
 import BreadcrumbsCore from './components/core/breadcrumbs/BreadcrumbsCore';
+import ButtonCore from './components/core/button/ButtonCore';
 
 
 import "./App.scss"
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Main/>} ></Route>
           <Route path="/getting-started" element={<GettingStarted/>} />
           <Route path="/breadcrumbs" element={<BreadcrumbsCore/>} />
+          <Route path="/button" element={<ButtonCore/>} />
         </Routes>
       </div>
       

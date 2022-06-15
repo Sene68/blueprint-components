@@ -51,7 +51,7 @@ function BreadcrumbsCore() {
                 <p>
                 <CodeBlock
                     text={CODE}
-                    language={"javascript"}
+                    language={"jsx"}
                     showLineNumbers={false}
                     theme={dracula}
                 />

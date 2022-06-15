@@ -10,7 +10,7 @@ function Left() {
                 <MenuItem href="/getting-started" text="Getting Started" />
                 <MenuDivider title="CORE"/>
                 <MenuItem href="/breadcrumbs" text="Breadcrumbs" />
-                <MenuItem text="Button" />
+                <MenuItem href="/button" text="Button" />
                 <MenuItem text="Button group" />
                 <MenuDivider title="DATETIME"/>
                 <MenuItem text="Date picker" />
