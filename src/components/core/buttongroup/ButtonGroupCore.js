@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Callout, Card, ButtonGroup, AnchorButton, Button } from "@blueprintjs/core";
-import { Popover2 } from "@blueprintjs/popover2";
 import { CodeBlock, dracula } from "react-code-blocks";
 import "../../main/Main.scss";
 
