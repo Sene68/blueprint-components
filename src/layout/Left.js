@@ -11,7 +11,7 @@ function Left() {
                 <MenuDivider title="CORE"/>
                 <MenuItem href="/breadcrumbs" text="Breadcrumbs" />
                 <MenuItem href="/button" text="Button" />
-                <MenuItem text="Button group" />
+                <MenuItem href="/buttongroup" text="Button Group" />
                 <MenuDivider title="DATETIME"/>
                 <MenuItem text="Date picker" />
             </Menu>
