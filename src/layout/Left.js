@@ -13,6 +13,7 @@ function Left() {
                 <MenuItem href="/button" text="Button" />
                 <MenuItem href="/buttongroup" text="Button Group" />
                 <MenuItem href="/callout" text="Callout" />
+                <MenuItem href="/card" text="Card" />
                 <MenuDivider title="DATETIME"/>
                 <MenuItem text="Date picker" />
             </Menu>
