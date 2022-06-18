@@ -9,6 +9,7 @@ import ButtonCore from './components/core/button/ButtonCore';
 import ButtonGroupCore from './components/core/buttongroup/ButtonGroupCore';
 import CalloutCore from './components/core/callout/CalloutCore';
 import CardCore from './components/core/card/CardCore';
+import CollapseCore from './components/core/collapse/CollapseCore';
 
 
 import "./App.scss"
@@ -27,6 +28,7 @@ function App() {
           <Route path="/buttongroup" element={<ButtonGroupCore/>} />
           <Route path="/callout" element={<CalloutCore/>} />
           <Route path="/card" element={<CardCore/>} />
+          <Route path="/collapse" element={<CollapseCore/>} />
         </Routes>
       </div>
       
