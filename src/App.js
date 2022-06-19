@@ -10,6 +10,7 @@ import ButtonGroupCore from './components/core/buttongroup/ButtonGroupCore';
 import CalloutCore from './components/core/callout/CalloutCore';
 import CardCore from './components/core/card/CardCore';
 import CollapseCore from './components/core/collapse/CollapseCore';
+import DividerCore from './components/core/divider/DividerCore';
 
 
 import "./App.scss"
@@ -29,6 +30,7 @@ function App() {
           <Route path="/callout" element={<CalloutCore/>} />
           <Route path="/card" element={<CardCore/>} />
           <Route path="/collapse" element={<CollapseCore/>} />
+          <Route path="/divider" element={<DividerCore/>} />
         </Routes>
       </div>
       
