@@ -16,6 +16,7 @@ function Left() {
                 <MenuItem href="/card" text="Card" />
                 <MenuItem href="/collapse" text="Collapse" />
                 <MenuItem href="/divider" text="Divider" />
+                <MenuItem href="/editabletext" text="Editable Text" />
                 <MenuDivider title="DATETIME"/>
                 <MenuItem text="Date picker" />
             </Menu>
