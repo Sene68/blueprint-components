@@ -12,6 +12,7 @@ import CardCore from './components/core/card/CardCore';
 import CollapseCore from './components/core/collapse/CollapseCore';
 import DividerCore from './components/core/divider/DividerCore';
 import EditableTextCore from './components/core/editabletext/EditableTextCore';
+import MenuCore from './components/core/menu/MenuCore';
 
 
 import "./App.scss"
@@ -33,6 +34,7 @@ function App() {
           <Route path="/collapse" element={<CollapseCore/>} />
           <Route path="/divider" element={<DividerCore/>} />
           <Route path="/editabletext" element={<EditableTextCore/>} />
+          <Route path="/menu" element={<MenuCore/>} />
         </Routes>
       </div>
       

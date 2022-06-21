@@ -2,3 +2,18 @@
     padding: 20px;
     width: 100%;
 }
+
+.example-box {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    -ms-flex-negative: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+    min-width: 0;
+    padding: 20px;
+    align-items: center;
+}
