@@ -21,6 +21,7 @@ function Left() {
                 <MenuItem href="/navbar" text="Navbar" />
                 <MenuItem href="/nonidealstate" text="Non-ideal state" />
                 <MenuItem href="/progressbar" text="Progress Bar" />
+                <MenuItem href="/spinner" text="Spinner" />
                 <MenuDivider title="DATETIME"/>
                 <MenuItem text="Date picker" />
             </Menu>
