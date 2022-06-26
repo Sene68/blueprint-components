@@ -17,6 +17,7 @@ import NavbarCore from './components/core/navbar/NavbarCore';
 import NonIdealStateCore from './components/core/nonidealstate/NonIdealStateCore';
 import ProgressBarCore from './components/core/progressbar/ProgressBarCore';
 import SpinnerCore from './components/core/spinner/SpinnerCore';
+import TabsCore from './components/core/tabs/TabsCore';
 
 import "./App.scss"
 
@@ -42,6 +43,7 @@ function App() {
           <Route path="/nonidealstate" element={<NonIdealStateCore/>} />
           <Route path="/progressbar" element={<ProgressBarCore/>} />
           <Route path="/spinner" element={<SpinnerCore/>} />
+          <Route path="/tabs" element={<TabsCore/>} />
         </Routes>
       </div>
       
