@@ -23,6 +23,7 @@ function Left() {
                 <MenuItem href="/progressbar" text="Progress Bar" />
                 <MenuItem href="/spinner" text="Spinner" />
                 <MenuItem href="/tabs" text="Tabs" />
+                <MenuItem href="/tag" text="Tag" />
                 <MenuDivider title="DATETIME"/>
                 <MenuItem text="Date picker" />
             </Menu>
