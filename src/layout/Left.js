@@ -24,6 +24,7 @@ function Left() {
                 <MenuItem href="/spinner" text="Spinner" />
                 <MenuItem href="/tabs" text="Tabs" />
                 <MenuItem href="/tag" text="Tag" />
+                <MenuItem href="/text" text="Text" />
                 <MenuDivider title="DATETIME"/>
                 <MenuItem text="Date picker" />
             </Menu>
