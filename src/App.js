@@ -20,6 +20,7 @@ import SpinnerCore from './components/core/spinner/SpinnerCore';
 import TabsCore from './components/core/tabs/TabsCore';
 import TagCore from './components/core/tag/TagCore';
 import TextCore from './components/core/text/TextCore';
+import TreeCore from './components/core/tree/TreeCore';
 
 import "./App.scss"
 
@@ -48,6 +49,7 @@ function App() {
           <Route path="/tabs" element={<TabsCore/>} />
           <Route path="/tag" element={<TagCore/>} />
           <Route path="/text" element={<TextCore/>} />
+          <Route path="/tree" element={<TreeCore/>} />
         </Routes>
       </div>
       
