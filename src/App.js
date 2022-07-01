@@ -21,6 +21,7 @@ import TabsCore from './components/core/tabs/TabsCore';
 import TagCore from './components/core/tag/TagCore';
 import TextCore from './components/core/text/TextCore';
 import TreeCore from './components/core/tree/TreeCore';
+import FormGroupCore from './components/form/formgroup/FormGroupCore';
 
 import "./App.scss"
 
@@ -50,6 +51,7 @@ function App() {
           <Route path="/tag" element={<TagCore/>} />
           <Route path="/text" element={<TextCore/>} />
           <Route path="/tree" element={<TreeCore/>} />
+          <Route path="/formgroup" element={<FormGroupCore/>} />
         </Routes>
       </div>
       
