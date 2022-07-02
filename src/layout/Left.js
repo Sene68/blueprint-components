@@ -27,6 +27,7 @@ function Left() {
                 <MenuItem href="/text" text="Text" />
                 <MenuItem href="/tree" text="Tree" />
                 <MenuItem href="/formgroup" text="Form group" />
+                <MenuItem href="/controlgroup" text="Control group" />
                 <MenuDivider title="DATETIME"/>
                 <MenuItem text="Date picker" />
             </Menu>
