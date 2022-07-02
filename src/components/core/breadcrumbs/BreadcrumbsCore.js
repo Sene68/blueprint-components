@@ -58,11 +58,11 @@ function BreadcrumbsCore() {
         setCollapseFrom(e.target.value);
     };
 
-    const handleChangeAlwaysRenderOverflow = (e) => {
+    const handleChangeAlwaysRenderOverflow = () => {
         setAlwaysRenderOverflow(!alwaysRenderOverflow);
     }
 
-    const handleChangeRenderCurrentAsInput = (e) => {
+    const handleChangeRenderCurrentAsInput = () => {
         setRenderCurrentAsInput(!renderCurrentAsInput);
     }
 
