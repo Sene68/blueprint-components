@@ -1,4 +1,4 @@
-import React , { useState } from "react";
+import React , { useReducer, useState } from "react";
 import { Callout, Card, AnchorButton, Button,  H5, Intent, Switch } from "@blueprintjs/core";
 import { Example } from "@blueprintjs/docs-theme";
 import { CodeBlock, dracula } from "react-code-blocks";
@@ -7,16 +7,18 @@ import SizeSelect from "../../common/SizeSelect";
 import "../../main/Main.scss";
 
 function ButtonCore() {
-    const [active, setActive] = useState(false);
-    const [disabled, setDisabled] = useState(false);
+    const initialState = {
+        active: false,
+        disabled: false,
+        intent: Intent.NONE,
+        loading: false,
+        minimal: false,
+        outlined: false,
+        size: "regular"
+    };
+
+    const [state, dispatch] = useReducer(Reducer, initialState);
     const [iconOnly, setIconOnly] = useState(false);
-    const [intent, setIntent] = useState(Intent.NONE);
-    const [loading, setLoading] = useState(false);
-    const [minimal, setMinimal] = useState(false);
-    const [outlined, setOutlined] = useState(false);
-    const [size, setSize] = useState("regular");
-    const [wiggling , setWiggling] = useState(false);
-    const [wiggleTimeoutId, setWiggleTimeoutId] = useState(0);
 
     const CODE = 
     `
@@ -49,31 +51,33 @@ function ButtonCore() {
     `;
 
     const handleActiveChange = () => {
-        setActive(!active);
+        dispatch({type: 'ActiveChange', value: !state.active});       
     };
 
     const handleDisabledChange = () => {
-        setDisabled(!disabled);
+        dispatch({type: 'DisabledChange', value: !state.disabled});
     };
 
     const handleLoadingChange = () => {
-        setLoading(!loading);
+        dispatch({type: 'LoadingChange', value: !state.loading});
     };
 
     const handleMinimalChange = () => {
-        setMinimal(!minimal);
+        dispatch({type: 'MinimalChange', value: !state.minimal});
     };
 
     const handleOutlinedChange = () => {
-        setOutlined(!outlined);
+        dispatch({type: 'OutlinedChange', value: !state.outlined});
     };
 
     const handleSizeChange = (e) => {
-        setSize(e.target.innerText);
+        const size = e.target.innerText;
+        dispatch({type: 'SizeChange', value: size});
     }; 
 
     const handleIntentChange = (e) => {
-        setIntent(e.target.value);
+        const intent = e.target.value;
+        dispatch({type: 'IntentChange', value: intent});
     };
 
     const handleIconOnlyChange = () => {
@@ -83,23 +87,17 @@ function ButtonCore() {
     const options = (
         <>
             <H5>Props</H5>
-            <Switch label="Active" checked={active} onChange={handleActiveChange} />
-            <Switch label="Disabled" checked={disabled} onChange={handleDisabledChange} />
-            <Switch label="Loading" checked={loading} onChange={handleLoadingChange} />
-            <Switch label="Minimal" checked={minimal} onChange={handleMinimalChange} />
-            <Switch label="Outlined" checked={outlined} onChange={handleOutlinedChange} />
-            <SizeSelect size={size} onChange={handleSizeChange} />
-            <IntentSelect intent={intent} onChange={handleIntentChange} />
+            <Switch label="Active" checked={state.active} onChange={handleActiveChange} />
+            <Switch label="Disabled" checked={state.disabled} onChange={handleDisabledChange} />
+            <Switch label="Loading" checked={state.loading} onChange={handleLoadingChange} />
+            <Switch label="Minimal" checked={state.minimal} onChange={handleMinimalChange} />
+            <Switch label="Outlined" checked={state.outlined} onChange={handleOutlinedChange} />
+            <SizeSelect size={state.size} onChange={handleSizeChange} />
+            <IntentSelect intent={state.intent} onChange={handleIntentChange} />
             <H5>Example</H5>
             <Switch label="Icons only" checked={iconOnly} onChange={handleIconOnlyChange} />
         </>
     );
-
-    const beginWiggling = () => {
-        window.clearTimeout(wiggleTimeoutId);
-        setWiggling(true);
-        setWiggleTimeoutId(window.setTimeout(() => setWiggling(false), 300));
-    };
 
     return(
         <div className="main">
@@ -108,20 +106,12 @@ function ButtonCore() {
                     <Card>
                         <div style={{float: 'left', paddingRight: '5px'}}>
                             <Button
-                                className={wiggling ? "docs-wiggle" : ""}
                                 icon="refresh"
-                                onClick={beginWiggling}
-                                small={size === "small"}
-                                large={size === "large"}
-                                active={active}
-                                disabled={disabled}
-                                loading={loading}
-                                minimal={minimal}
-                                outlined={outlined}
-                                intent={intent}
-                            >
-                                {!iconOnly && "Click to wiggle"}
-                            </Button>
+                                text={iconOnly ? undefined : "Button"}
+                                small={state.size === "small"}
+                                large={state.size === "large"}
+                                {...state}
+                            />
                         </div>
                         <div>
                             <AnchorButton
@@ -130,14 +120,9 @@ function ButtonCore() {
                                 rightIcon="share"
                                 target="_blank"
                                 text={iconOnly ? undefined : "Duplicate this page"}
-                                small={size === "small"}
-                                large={size === "large"}
-                                active={active}
-                                disabled={disabled}
-                                loading={loading}
-                                minimal={minimal}
-                                outlined={outlined}
-                                intent={intent}
+                                small={state.size === "small"}
+                                large={state.size === "large"}
+                                {...state}
                             />
                         </div>
                     </Card>
@@ -159,3 +144,35 @@ function ButtonCore() {
 }
 
 export default ButtonCore;
+
+function Reducer(state, action) {
+    switch (action.type) {
+        case 'ActiveChange': {
+            return {...state, active: action.value}
+        }
+
+        case 'DisabledChange': {
+            return {...state, disabled: action.value}
+        }
+
+        case 'LoadingChange': {
+            return {...state, loading: action.value}
+        }
+
+        case 'MinimalChange': {
+            return {...state, minimal: action.value}
+        }
+
+        case 'OutlinedChange': {
+            return {...state, outlined: action.value}
+        }
+
+        case 'SizeChange': {
+            return {...state, size: action.value}
+        }
+
+        case 'IntentChange': {
+            return {...state, intent: action.value}
+        }
+    }
+}

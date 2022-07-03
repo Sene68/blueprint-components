@@ -7,8 +7,6 @@ function SizeSelect(props) {
     const label = "Size";
     const optionLabels = ["small", "regular", "large"];
 
-    console.log(props);
-
     return(
         <Label>
             {label}

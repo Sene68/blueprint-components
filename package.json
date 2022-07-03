@@ -7,6 +7,7 @@
     "@blueprintjs/docs-theme": "^4.3.1",
     "@blueprintjs/icons": "^4.3.0",
     "@blueprintjs/popover2": "^1.4.1",
+    "@blueprintjs/select": "^4.4.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
