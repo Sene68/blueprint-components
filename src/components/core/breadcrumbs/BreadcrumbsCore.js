@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 import { Callout, Card, Boundary, Breadcrumbs, Checkbox, H5, InputGroup, Label, RadioGroup, Slider } from "@blueprintjs/core";
 import { CodeBlock, dracula } from "react-code-blocks";
 import { Example } from "@blueprintjs/docs-theme";
@@ -24,10 +24,14 @@ const ITEMS_FOR_ALWAYS_RENDER = [
 ];
 
 function BreadcrumbsCore() {
-    const [width, setWidth] = useState(50);
-    const [collapseFrom , setCollapseFrom] = useState(Boundary.START);
-    const [alwaysRenderOverflow, setAlwaysRenderOverflow] = useState(false);
-    const [renderCurrentAsInput, setRenderCurrentAsInput] = useState(false);
+    const initialState = {
+        width: 50,
+        collapseFrom: Boundary.START,
+        alwaysRenderOverflow: false,
+        renderCurrentAsInput: false
+    };
+
+    const [state, dispatch] = useReducer(Reducer, initialState);
 
     const CODE = 
     `
@@ -55,19 +59,21 @@ function BreadcrumbsCore() {
     `;
 
     const handleChangeCollapse = (e) => {
-        setCollapseFrom(e.target.value);
+        const collapse = e.target.value;
+        dispatch({type: 'ChangeCollapse', value: collapse});
     };
 
     const handleChangeAlwaysRenderOverflow = () => {
-        setAlwaysRenderOverflow(!alwaysRenderOverflow);
+        dispatch({type: 'ChangeAlwaysRenderOverflow', value: !state.alwaysRenderOverflow})
     }
 
     const handleChangeRenderCurrentAsInput = () => {
-        setRenderCurrentAsInput(!renderCurrentAsInput);
+        dispatch({type: 'ChangeRenderCurrentAsInput', value: !state.renderCurrentAsInput});
     }
 
     const handleChangeWidth = (e) => {
-        setWidth(e);
+        const width = e;
+        dispatch({type: 'ChangeWidth', value: width});
     };
 
     const renderLabel = (value) => {
@@ -87,19 +93,19 @@ function BreadcrumbsCore() {
                 label="Collapse from"
                 onChange={handleChangeCollapse}
                 options={COLLAPSE_FROM_RADIOS}
-                selectedValue={collapseFrom.toString()}
+                selectedValue={state.collapseFrom.toString()}
             />
             <Checkbox
                 name="alwaysRenderOverflow"
                 label="Always render overflow"
                 onChange={handleChangeAlwaysRenderOverflow}
-                checked={alwaysRenderOverflow}
+                checked={state.alwaysRenderOverflow}
             />
             <Checkbox
                 name="renderCurrent"
                 label="Render current breadcrumb as input"
                 onChange={handleChangeRenderCurrentAsInput}
-                checked={renderCurrentAsInput}
+                checked={state.renderCurrentAsInput}
             />
             <H5>Example</H5>
             <Label>Width</Label>
@@ -109,7 +115,7 @@ function BreadcrumbsCore() {
                 max={100}
                 onChange={handleChangeWidth}
                 showTrackFill={false}
-                value={width}
+                value={state.width}
             />
         </>
     );
@@ -118,12 +124,12 @@ function BreadcrumbsCore() {
         <div className="main">
             <Callout title={"Breadcrumbs"}>
                 <Example options={options}>
-                    <Card elevation={0} style={{ width: `${width}%` }}>
+                    <Card elevation={0} style={{ width: `${state.width}%` }}>
                         <Breadcrumbs
-                            collapseFrom={collapseFrom}
-                            items={alwaysRenderOverflow ? ITEMS_FOR_ALWAYS_RENDER : ITEMS}
-                            currentBreadcrumbRenderer={renderCurrentAsInput ? renderBreadcrumbInput : undefined}
-                            overflowListProps={{ alwaysRenderOverflow }}
+                            collapseFrom={state.collapseFrom}
+                            items={state.alwaysRenderOverflow ? ITEMS_FOR_ALWAYS_RENDER : ITEMS}
+                            currentBreadcrumbRenderer={state.renderCurrentAsInput ? renderBreadcrumbInput : undefined}
+                            overflowListProps={state.alwaysRenderOverflow}
                         />
                     </Card>
                 </Example>
@@ -155,4 +161,24 @@ function BreadcrumbInput(props) {
         <InputGroup placeholder="rename me" value={text} onChange={handleChange} />
     );
     
+}
+
+function Reducer(state, action) {
+    switch (action.type) {
+        case 'ChangeCollapse': {
+            return {...state, collapseFrom: action.value}
+        }
+
+        case 'ChangeAlwaysRenderOverflow': {
+            return {...state, alwaysRenderOverflow: action.value}
+        }
+
+        case 'ChangeRenderCurrentAsInput': {
+            return {...state, renderCurrentAsInput: action.value}
+        }
+
+        case 'ChangeWidth': {
+            return {...state, width: action.value}
+        }
+    }
 }
