@@ -24,6 +24,7 @@ import TreeCore from './components/core/tree/TreeCore';
 import FormGroupCore from './components/form/formgroup/FormGroupCore';
 import ControlGroupCore from './components/form/controlgroup/ControlGroupCore';
 import CheckboxCore from './components/form/checkbox/CheckboxCore';
+import RadioCore from './components/form/radio/RadioCore';
 
 import "./App.scss"
 
@@ -56,6 +57,7 @@ function App() {
           <Route path="/formgroup" element={<FormGroupCore/>} />
           <Route path="/controlgroup" element={<ControlGroupCore/>} />
           <Route path="/checkbox" element={<CheckboxCore/>} />
+          <Route path="/radio" element={<RadioCore/>} />
         </Routes>
       </div>
       
