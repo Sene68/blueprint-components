@@ -7,6 +7,7 @@ import GettingStarted from "./components/main/GettingStarted";
 import BreadcrumbsCore from './components/core/breadcrumbs/BreadcrumbsCore';
 import ButtonCore from './components/core/button/ButtonCore';
 import ButtonGroupCore from './components/core/buttongroup/ButtonGroupCore';
+import ButtonGroupPopoverCore from './components/core/buttongroup/ButtonGroupPopoverCore';
 import CalloutCore from './components/core/callout/CalloutCore';
 import CardCore from './components/core/card/CardCore';
 import CollapseCore from './components/core/collapse/CollapseCore';
@@ -40,6 +41,7 @@ function App() {
           <Route path="/breadcrumbs" element={<BreadcrumbsCore/>} />
           <Route path="/button" element={<ButtonCore/>} />
           <Route path="/buttongroup" element={<ButtonGroupCore/>} />
+          <Route path="/buttonpopover" element={<ButtonGroupPopoverCore/>} />
           <Route path="/callout" element={<CalloutCore/>} />
           <Route path="/card" element={<CardCore/>} />
           <Route path="/collapse" element={<CollapseCore/>} />

@@ -11,7 +11,8 @@ function Left() {
                 <MenuDivider title="CORE"/>
                 <MenuItem href="/breadcrumbs" text="Breadcrumbs" />
                 <MenuItem href="/button" text="Button" />
-                <MenuItem href="/buttongroup" text="Button group" />
+                <MenuItem href="/buttongroup" text="Button group default" />
+                <MenuItem href="/buttonpopover" text="Button group popover" />
                 <MenuItem href="/callout" text="Callout" />
                 <MenuItem href="/card" text="Card" />
                 <MenuItem href="/collapse" text="Collapse" />
