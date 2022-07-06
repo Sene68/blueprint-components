@@ -26,6 +26,7 @@ import FormGroupCore from './components/form/formgroup/FormGroupCore';
 import ControlGroupCore from './components/form/controlgroup/ControlGroupCore';
 import CheckboxCore from './components/form/checkbox/CheckboxCore';
 import RadioCore from './components/form/radio/RadioCore';
+import SliderCore from './components/form/slider/SliderCore';
 
 import "./App.scss"
 
@@ -60,6 +61,7 @@ function App() {
           <Route path="/controlgroup" element={<ControlGroupCore/>} />
           <Route path="/checkbox" element={<CheckboxCore/>} />
           <Route path="/radio" element={<RadioCore/>} />
+          <Route path="/slider" element={<SliderCore/>} />
         </Routes>
       </div>
       
