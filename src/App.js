@@ -28,6 +28,7 @@ import CheckboxCore from './components/form/checkbox/CheckboxCore';
 import RadioCore from './components/form/radio/RadioCore';
 import SliderCore from './components/form/slider/SliderCore';
 import SwitchCore from './components/form/switch/SwitchCore';
+import FileInputCore from './components/form/fileinput/FileInputCore';
 
 import "./App.scss"
 
@@ -64,6 +65,7 @@ function App() {
           <Route path="/radio" element={<RadioCore/>} />
           <Route path="/slider" element={<SliderCore/>} />
           <Route path="/switch" element={<SwitchCore/>} />
+          <Route path="/fileinput" element={<FileInputCore/>} />
         </Routes>
       </div>
       
