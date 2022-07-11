@@ -1,9 +1,12 @@
-import * as React from "react";
-import { Button, ButtonGroup, Callout, Card, Divider } from "@blueprintjs/core";
+import React, { useState } from "react";
+import { Button, ButtonGroup, Callout, Divider, H5, Switch } from "@blueprintjs/core";
+import { Example } from "@blueprintjs/docs-theme";
 import { CodeBlock, dracula } from "react-code-blocks";
 import "../../main/Main.scss";
 
 function DividerCore() {
+    const [vertical, setVertical] = useState(false);
+
     const CODE = 
     `
     import * as React from "react";
@@ -28,11 +31,22 @@ function DividerCore() {
     export default Divider;
     `;
 
+    const handleVerticalChange = () => {
+        setVertical(!vertical);
+    };
+
+    const options = (
+        <>
+            <H5>Example props</H5>
+            <Switch checked={vertical} label="Vertical" onChange={handleVerticalChange} />
+        </>
+    );
+
     return(
         <div className="main">
             <Callout title={"Divider"}>
-                <Card>
-                    <ButtonGroup minimal={true}>
+                <Example options={options}>
+                    <ButtonGroup minimal={true} vertical={vertical}>
                         <Button text="File" />
                         <Button text="Edit" />
                         <Divider />
@@ -42,7 +56,7 @@ function DividerCore() {
                         <Button icon="add" />
                         <Button icon="remove" />
                     </ButtonGroup>
-                </Card>
+                </Example>
                 <br/>
                 <h6 className="bp4-heading">Code </h6>
                 <p>
