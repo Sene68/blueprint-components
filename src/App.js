@@ -29,6 +29,7 @@ import RadioCore from './components/form/radio/RadioCore';
 import SliderCore from './components/form/slider/SliderCore';
 import SwitchCore from './components/form/switch/SwitchCore';
 import FileInputCore from './components/form/fileinput/FileInputCore';
+import TextInputCore from './components/form/textinput/TextInputCore';
 
 import "./App.scss"
 
@@ -66,6 +67,7 @@ function App() {
           <Route path="/slider" element={<SliderCore/>} />
           <Route path="/switch" element={<SwitchCore/>} />
           <Route path="/fileinput" element={<FileInputCore/>} />
+          <Route path="/textinput" element={<TextInputCore/>} />
         </Routes>
       </div>
       

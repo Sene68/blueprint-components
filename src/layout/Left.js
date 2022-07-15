@@ -34,6 +34,7 @@ function Left() {
                 <MenuItem href="/slider" text="Slider" />
                 <MenuItem href="/switch" text="Switch" />
                 <MenuItem href="/fileinput" text="File Input" />
+                <MenuItem href="/textinput" text="Text Input" />
                 <MenuDivider title="DATETIME"/>
                 <MenuItem text="Date picker" />
             </Menu>
