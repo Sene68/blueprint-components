@@ -35,6 +35,7 @@ function Left() {
                 <MenuItem href="/switch" text="Switch" />
                 <MenuItem href="/fileinput" text="File Input" />
                 <MenuItem href="/textinput" text="Text Input" />
+                <MenuItem href="/taginput" text="Tag Input" />
                 <MenuDivider title="DATETIME"/>
                 <MenuItem text="Date picker" />
             </Menu>

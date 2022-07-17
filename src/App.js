@@ -30,6 +30,7 @@ import SliderCore from './components/form/slider/SliderCore';
 import SwitchCore from './components/form/switch/SwitchCore';
 import FileInputCore from './components/form/fileinput/FileInputCore';
 import TextInputCore from './components/form/textinput/TextInputCore';
+import TagInputCore from './components/form/taginput/TagInputCore';
 
 import "./App.scss"
 
@@ -68,6 +69,7 @@ function App() {
           <Route path="/switch" element={<SwitchCore/>} />
           <Route path="/fileinput" element={<FileInputCore/>} />
           <Route path="/textinput" element={<TextInputCore/>} />
+          <Route path="/taginput" element={<TagInputCore/>} />
         </Routes>
       </div>
       
