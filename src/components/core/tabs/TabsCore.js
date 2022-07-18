@@ -1,5 +1,6 @@
-import * as React from "react";
-import { Callout, Card, Classes, H3, Tab, Tabs } from "@blueprintjs/core";
+import React, { useState, useReducer } from "react";
+import { Alignment, Callout, Classes, H3, H5, InputGroup, Navbar, Switch, Tab, TabId, Tabs } from "@blueprintjs/core";
+import { Example } from "@blueprintjs/docs-theme";
 import { CodeBlock, dracula } from "react-code-blocks";
 import "../../main/Main.scss";
 
@@ -52,6 +53,15 @@ function BackbonePanel() {
     
 
 function TabsCore() {
+    const initialState = {
+        activePanelOnly: false,
+        animate: true,
+        vertical: false
+    };
+
+    const [state, dispatch] = useReducer(Reducer, initialState);
+    const [navbarTabId, setNavbarTabId] = useState("Home");
+
     const CODE = 
     `
     import * as React from "react";
@@ -123,22 +133,78 @@ function TabsCore() {
     export default Tabs;
     `;
 
+    const toggleAnimate = () => {
+        dispatch({type: 'AnimateChange', value: !state.animate});
+    };
+
+    const toggleVertical = () => {
+        dispatch({type: 'VerticalChange', value: !state.vertical});
+    };
+
+    const toggleActiveOnly = () => {
+        dispatch({type: 'ActivePanelOnlyChange', value: !state.activePanelOnly});
+    };  
+
+    const handleNavbarTabChange = (e) => {
+        const tabId = e;
+        setNavbarTabId(tabId);
+    };
+
+    const options = (
+        <>
+            <H5>Props</H5>
+            <Switch checked={state.animate} label="Animate indicator" onChange={toggleAnimate} />
+            <Switch checked={state.vertical} label="Use vertical tabs" onChange={toggleVertical} />
+            <Switch
+                checked={state.activePanelOnly}
+                label="Render active tab panel only"
+                onChange={toggleActiveOnly}
+            />
+        </>
+    );
+
+
     return(
         <div className="main">
             <Callout title={"Tabs"}>
-                <Card>
+                <Example options={options}>
+                    <Navbar>
+                        <Navbar.Group>
+                            <Navbar.Heading>
+                                Current page: <strong>{navbarTabId}</strong>
+                            </Navbar.Heading>
+                        </Navbar.Group>
+                        <Navbar.Group align={Alignment.RIGHT}>
+                            {/* controlled mode & no panels (see h1 below): */}
+                            <Tabs
+                                animate={state.animate}
+                                id="navbar"
+                                large={true}
+                                onChange={handleNavbarTabChange}
+                                selectedTabId={navbarTabId}
+                            >
+                                <Tab id="Home" title="Home" />
+                                <Tab id="Files" title="Files" />
+                                <Tab id="Builds" title="Builds" />
+                            </Tabs>
+                        </Navbar.Group>
+                    </Navbar>
+                    <div style={{margin: '20px'}}></div>
                     <Tabs
-                        animate={true}
+                        animate={state.animate}
                         id="TabsExample"
-                        key="horizontal"
+                        key={state.vertical ? "vertical" : "horizontal"}
+                        renderActiveTabPanelOnly={state.activePanelOnly}
+                        vertical={state.vertical}
                     >
                         <Tab id="rx" title="React" panel={<ReactPanel />} />
                         <Tab id="ng" title="Angular" panel={<AngularPanel />} />
                         <Tab id="mb" title="Ember" panel={<EmberPanel />} panelClassName="ember-panel" />
                         <Tab id="bb" disabled={true} title="Backbone" panel={<BackbonePanel />} />
                         <Tabs.Expander />
+                        <InputGroup className={Classes.FILL} type="text" placeholder="Search..." />
                     </Tabs>
-                </Card>
+                </Example>
                 <br/>
                 <h6 className="bp4-heading">Code </h6>
                 <p>
@@ -155,3 +221,19 @@ function TabsCore() {
 }
 
 export default TabsCore;
+
+function Reducer(state, action) {
+    switch (action.type) {
+        case 'AnimateChange': {
+            return {...state, animate: action.value}
+        }
+
+        case 'VerticalChange': {
+            return {...state, vertical: action.value}
+        }
+
+        case 'ActivePanelOnlyChange': {
+            return {...state, activePanelOnly: action.value}
+        }
+    }
+}
